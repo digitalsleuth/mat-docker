@@ -7,3 +7,6 @@ RUN \
   echo "deb http://repo.saltstack.com/py3/ubuntu/20.04/amd64/3001 focal main" | tee /etc/apt/sources.list.d/saltstack.list && \
   apt-get update && \
   apt-get install -y salt-minion
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+ENV LANGUAGE C.UTF-8
