@@ -3,10 +3,10 @@ FROM ubuntu:18.04
 RUN \
   apt-get update && \
   apt-get install -y wget nano gnupg && \
-  wget -O - https://repo.saltstack.com/py3/ubuntu/18.04/amd64/3001/SALTSTACK-GPG-KEY.pub | apt-key add - && \
-  echo "deb https://repo.saltstack.com/py3/ubuntu/18.04/amd64/3001 bionic main" | tee /etc/apt/sources.list.d/saltstack.list && \
+  wget -O /usr/share/keyrings/salt-archive-keyring.gpg https://repo.saltproject.io/py3/ubuntu/18.04/amd64/latest/salt-archive-keyring.gpg && \
+  echo "deb [signed-by=/usr/share/keyrings/salt-archive-keyring.gpg] https://repo.saltproject.io/py3/ubuntu/18.04/amd64/latest bionic main" | tee /etc/apt/sources.list.d/saltstack.list && \
   apt-get update && \
-  apt-get install -y salt-minion
+  apt-get install -y salt-common
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
